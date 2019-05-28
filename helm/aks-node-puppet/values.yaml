@@ -3,8 +3,8 @@
 # Declare variables to be passed into your templates.
 
 image:
-  repository: esselt/aks-node-puppet
-  tag: latest
+  repository: sdpequinor/aks-node-puppet
+  tag: 1.0
   pullPolicy: Always
 
 nameOverride: ""

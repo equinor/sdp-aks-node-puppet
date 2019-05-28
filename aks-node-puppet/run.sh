@@ -11,25 +11,25 @@ echo "GIT_BRANCH: $GIT_BRANCH"
 echo "DEBUG: $DEBUG"
 echo
 
-if [ -n "$DEBUG" ] 
+if [ -n "$DEBUG" ]
 then
   set -x
 fi
 
 install_ssh() {
   echo "Running apt-get update"
-  apt-get update >/dev/null 2>&1
+  apt-get update
 
   echo "Installing OpenSSH Client"
-  apt-get install -y openssh-client -y >/dev/null
+  apt-get install -y openssh-client -y
 }
 
 install_git() {
   echo "Running apt-get update"
-  apt-get update >/dev/null 2>&1
+  apt-get update
 
   echo "Installing Git"
-  apt-get install -y git -y >/dev/null
+  apt-get install -y git -y
 }
 
 create_id_rsa() {
@@ -92,16 +92,16 @@ install_puppet() {
   echo "Detected Ubuntu Linux $majver (codename $codename)"
 
   echo "Adding repo for Puppet"
-  wget -q "http://apt.puppetlabs.com/puppet-release-${codename}.deb" >/dev/null
-  dpkg -i "puppet-release-${codename}.deb" >/dev/null
+  wget -q "http://apt.puppetlabs.com/puppet-release-${codename}.deb"
+  dpkg -i "puppet-release-${codename}.deb"
   rm -rf "puppet-release-${codename}.deb"
 
   echo "Running apt-get update"
-  apt-get update >/dev/null 2>&1
+  apt-get update
 
   echo "Installing Puppet and its dependencies"
-  apt-get install -y puppet-agent -y >/dev/null
-  apt-get install -y apt-transport-https -y >/dev/null
+  apt-get install -y puppet-agent -y
+  apt-get install -y apt-transport-https -y
 }
 
 run_puppet() {
