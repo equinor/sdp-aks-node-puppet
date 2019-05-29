@@ -22,6 +22,8 @@ spec:
         - name: {{ .Chart.Name }}-init
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
+          securityContext:
+            privileged: true
           volumeMounts:
             - name: node
               mountPath: /node
@@ -44,10 +46,10 @@ spec:
 {{ toYaml .Values.resources | indent 12 }}
       volumes:
         - name: node
-          hostPath: 
+          hostPath:
             path: /
         - name: puppetlogs
-          hostPath: 
+          hostPath:
             path: /var/log/puppetlabs/puppet
       containers:
         - name: {{ .Chart.Name }}
