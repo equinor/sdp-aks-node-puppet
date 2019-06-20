@@ -4,7 +4,7 @@
 
 image:
   repository: sdpequinor/aks-node-puppet
-  tag: 1.0
+  tag: '1.0'
   pullPolicy: Always
 
 nameOverride: ""
